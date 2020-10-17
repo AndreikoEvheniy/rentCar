@@ -43,10 +43,7 @@
                 <td><a href="controller?command=registrationView">Registration</a></td>
             </tr>
         </table>
-
     </form>
-
-
 </div>
 </body>
 </html>

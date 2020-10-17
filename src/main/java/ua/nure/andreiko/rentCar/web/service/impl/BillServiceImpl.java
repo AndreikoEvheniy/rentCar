@@ -37,7 +37,7 @@ public class BillServiceImpl implements BillService {
     /**
      * Create new bill
      *
-     * @param treatmentOrderBean
+     * @param treatmentOrderBean which need to create
      */
     @Override
     public void createBill(TreatmentOrderBean treatmentOrderBean) {

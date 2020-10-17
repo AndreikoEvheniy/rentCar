@@ -13,7 +13,7 @@ import java.util.Objects;
 /**
  * For form validation
  *
- * @author E.Andreiko
+ * @author E.Andreiko2911
  */
 public class Validator {
 
@@ -25,6 +25,13 @@ public class Validator {
         this.util = util;
     }
 
+    /**
+     * Validate form setting
+     *
+     * @param settingBean param setting
+     * @param locale param
+     * @return validate
+     */
     public Map<String, String> validate(SettingBean settingBean, Locale locale) {
         Map<String, String> errors = new HashMap<>();
         String postPrefix = "settings";
@@ -44,6 +51,13 @@ public class Validator {
         return errors;
     }
 
+    /**
+     * Validate form registration
+     *
+     * @param registrationBean param registration
+     * @param locale param
+     * @return validate
+     */
     public Map<String, String> validate(RegistrationBean registrationBean, Locale locale) {
         Map<String, String> errors = new HashMap<>();
         String postPrefix = "admin";
@@ -81,6 +95,12 @@ public class Validator {
         return errors;
     }
 
+    /**
+     * Validate form auth
+     *
+     * @param authBean param validate
+     * @return validate
+     */
     public Map<String, String> validate(AuthBean authBean) {
         Map<String, String> errors = new HashMap<>();
         User user;
@@ -101,6 +121,13 @@ public class Validator {
         return errors;
     }
 
+    /**
+     * Validate form operation car bean
+     *
+     * @param operationCarBean param operation car bean
+     * @param locale param
+     * @return validate
+     */
     public Map<String, String> validate(OperationCarBean operationCarBean, Locale locale) {
         Map<String, String> errors = new HashMap<>();
         String postPrefix = "admin";
@@ -116,6 +143,13 @@ public class Validator {
         return errors;
     }
 
+    /**
+     * Validate form status bean
+     *
+     * @param statusBean param status bean
+     * @param locale param
+     * @return validate
+     */
     public Map<String, String> validate(UpdateStatusBean statusBean, Locale locale) {
         Map<String, String> errors = new HashMap<>();
         String postPrefix = "admin";
@@ -125,6 +159,13 @@ public class Validator {
         return errors;
     }
 
+    /**
+     * Validate form make order bean
+     *
+     * @param makeOrderBean param order bean
+     * @param locale param
+     * @return validate
+     */
     public Map<String, String> validate(MakeOrderBean makeOrderBean, Locale locale) {
         Map<String, String> errors = new HashMap<>();
         String postPrefix = "order";
@@ -140,6 +181,14 @@ public class Validator {
         return errors;
     }
 
+
+    /**
+     * Validate form pay order bean
+     *
+     * @param payOrderBean param pay order bean
+     * @param locale param
+     * @return validate
+     */
     public Map<String, String> validate(PayOrderBean payOrderBean, Locale locale) {
         Map<String, String> errors = new HashMap<>();
         String postPrefix = "pay";
@@ -152,6 +201,14 @@ public class Validator {
         return errors;
     }
 
+
+    /**
+     * Validate form treatment order bean
+     *
+     * @param treatmentOrderBean param treatment order bean
+     * @param locale param
+     * @return validate
+     */
     public Map<String, String> validate(TreatmentOrderBean treatmentOrderBean, Locale locale) {
         Map<String, String> errors = new HashMap<>();
         String postPrefix = "treatment";
@@ -162,6 +219,13 @@ public class Validator {
         return errors;
     }
 
+    /**
+     * Validate form accept car bean
+     *
+     * @param acceptCarBean param accept car bean
+     * @param locale param
+     * @return validate
+     */
     public Map<String, String> validate(AcceptCarBean acceptCarBean, Locale locale) {
         Map<String, String> errors = new HashMap<>();
         String postPrefix = "accept";

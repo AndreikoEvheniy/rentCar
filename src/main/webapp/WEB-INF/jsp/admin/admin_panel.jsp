@@ -50,7 +50,7 @@
                         </div>
                     </div>
                 </div>
-                <input type="submit"
+                <input type="submit" name="addCar"
                        value="<cm:translate prefix="control" key="add_button" locale="${pageScope.locale}"/>">
             </form>
         </li>
@@ -93,7 +93,7 @@
                         </div>
                     </div>
                 </div>
-                <input type="submit"
+                <input type="submit" name="updateCar"
                        value="<cm:translate prefix="control" key="update_button" locale="${pageScope.locale}"/>">
             </form>
         </li>
@@ -103,10 +103,10 @@
                 <div class="formContainer">
                     <input type="hidden" name="command" value="deleteCar"/>
                     <h3><cm:translate prefix="control" key="delete" locale="${pageScope.locale}"/></h3>
-                    <input placeholder="ID" type="number" min="1" name="id_car">
+                    <input placeholder="ID" type="number" min="1" name="delete_id_car">
                     <span class="error"> <c:out value="${requestScope.errorsDelete.id}"/></span>
                 </div>
-                <input type="submit"
+                <input type="submit" name="deleteCar"
                        value="<cm:translate prefix="control" key="delete_button" locale="${pageScope.locale}"/>">
             </form>
         </li>

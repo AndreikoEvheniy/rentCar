@@ -18,6 +18,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Objects;
 
+/**
+ * Main servlet controller.
+ *
+ * @author E.Andreiko
+ */
 public class Controller extends HttpServlet {
 
     private static final Logger LOGGER = Logger.getLogger(Controller.class);
@@ -32,6 +37,9 @@ public class Controller extends HttpServlet {
         process(request, response);
     }
 
+    /**
+     * Main method of this controller.
+     */
     private void process(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         LOGGER.debug(LoggerUtils.COMMAND_START);
 
@@ -52,6 +60,11 @@ public class Controller extends HttpServlet {
         request.getRequestDispatcher(forward).forward(request, response);
     }
 
+    /**
+     * Get command from request
+     * @param request get from form
+     * @return command
+     */
     private Command getCommand(HttpServletRequest request) {
         String commandName = request.getParameter("command");
         LOGGER.trace(LoggerUtils.COMMAND_COMMAND_PARAMETER + commandName);
