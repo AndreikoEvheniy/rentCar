@@ -4,6 +4,11 @@ import ua.nure.andreiko.rentCar.db.entity.Entity;
 
 import java.util.Objects;
 
+/**
+ * Car Data Transfer Object.
+ *
+ * @author E.Andreiko
+ */
 public class CarDTO extends Entity {
 
     private String model;

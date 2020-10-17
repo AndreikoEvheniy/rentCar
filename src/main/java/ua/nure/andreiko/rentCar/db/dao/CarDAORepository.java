@@ -13,6 +13,11 @@ import java.util.List;
 
 import static ua.nure.andreiko.rentCar.db.DBManager.close;
 
+/**
+ * Car DAO. Works with car repository.
+ *
+ * @author E.Andreiko
+ */
 public class CarDAORepository {
 
     private final DBManager dbManager;
@@ -23,6 +28,13 @@ public class CarDAORepository {
         this.dbManager = dbManager;
     }
 
+    /**
+     * Insert an object of car class.
+     *
+     * @param car which needs to be insert
+     * @return true if car was insert
+     * @throws DBException
+     */
     public boolean insertCar(Car car) throws DBException {
         Connection connection = dbManager.getConnection();
         PreparedStatement preparedStatement = null;
@@ -46,6 +58,13 @@ public class CarDAORepository {
         return true;
     }
 
+    /**
+     * Update car
+     *
+     * @param car which update
+     * @return true if update was completed
+     * @throws DBException
+     */
     public boolean updateCar(Car car) throws DBException {
         Connection connection = dbManager.getConnection();
         PreparedStatement preparedStatement = null;
@@ -70,6 +89,13 @@ public class CarDAORepository {
         return true;
     }
 
+    /**
+     * Remove car from db
+     *
+     * @param car which remove
+     * @return true if remove was completed
+     * @throws DBException
+     */
     public boolean deleteCar(Car car) throws DBException {
         Connection connection = dbManager.getConnection();
         PreparedStatement preparedStatement = null;
@@ -89,6 +115,11 @@ public class CarDAORepository {
         return true;
     }
 
+    /**
+     *
+     * @return list car DTO
+     * @throws DBException
+     */
     public List<CarDTO> getAllCarDTO() throws DBException {
         List<CarDTO> carDTOList = new ArrayList<>();
         Connection connection = dbManager.getConnection();
@@ -112,6 +143,13 @@ public class CarDAORepository {
         return carDTOList;
     }
 
+    /**
+     * Extracts a car DTO entity from the result set
+     *
+     * @param resultSet from which a car DTO entity will be extracted.
+     * @return car DTO entity
+     * @throws SQLException
+     */
     public CarDTO extractCarDTO(ResultSet resultSet) throws SQLException {
         CarDTO carDTO = new CarDTO();
         carDTO.setId(resultSet.getLong("id_car"));

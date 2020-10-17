@@ -9,6 +9,11 @@ import ua.nure.andreiko.rentCar.exception.DBException;
 
 import java.util.List;
 
+/**
+ * Class brand repository which the implements interface brand repository
+ *
+ * @author E.Andreiko
+ */
 public class BrandRepositoryImpl implements BrandRepository {
 
     private final Logger LOGGER = Logger.getLogger(BrandRepositoryImpl.class);
@@ -22,6 +27,9 @@ public class BrandRepositoryImpl implements BrandRepository {
         this.brandDAORepository = brandDAORepository;
     }
 
+    /**
+     * @return list brand
+     */
     @Override
     public List<Brand> getBrandList() {
         return dbManager.doTransaction(() -> {

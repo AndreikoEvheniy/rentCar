@@ -1,0 +1,271 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-size: 24px;
+}
+
+body {
+    background-color: yellow;
+}
+
+td {
+    text-align: center;
+    padding: 10px;
+}
+
+form.auth {
+    display: flex;
+    justify-content: center;
+    background-color: black;
+    border-radius: 20px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+    padding: 50px 0;
+}
+
+a {
+    color: white;
+}
+
+.mainContainer {
+    background-color: #333333;
+    margin: 20px 50px;
+    border-radius: 30px;
+    padding: 50px 2%;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 50px 30%;
+}
+
+.container a {
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.header {
+    width: 100%;
+    margin-bottom: 2%;
+    align-items: center;
+    background-color: #333;
+    font-size: 25px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 30px 0;
+}
+
+ul.header a {
+    /*color:lightgray;*/
+    text-decoration: none;
+}
+
+ul.header span[class="material-icons"] {
+    padding: 0 5px;
+    font-size: 28px;
+    color: white;
+}
+
+ul.header a:hover {
+    color: #ff9900;
+}
+
+ul.header .notActive {
+    color: lightgray;
+}
+
+ul.header li {
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+}
+
+ul.header li a,
+ul.header li span {
+    color: lightgray;
+}
+
+ul.header li:last-child {
+    padding: 5px 30px;
+    background-color: #3e3e3e;
+    border-radius: 50px;
+}
+
+ul.header li:last-child span {
+    padding-right: 10px;
+}
+
+.reject {
+    color: red;
+}
+
+.centerHeader {
+    width: 50%;
+    text-align: center;
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
+.leftHeader {
+    text-align: left;
+    padding-left: 10%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+.rightHeader {
+    text-align: right;
+    padding-right: 10%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+
+/* input and select */
+input[type="text"],
+input[type="password"] {
+    padding: 20px;
+    border: none;
+    border-bottom: 2px solid #FF9900;
+    outline: none;
+    text-align: center;
+    background: inherit;
+    color: white;
+}
+
+input:-webkit-autofill,
+select:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px #333333 inset !important;
+    -webkit-text-fill-color: white !important;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-bottom: 2px solid #ff9900;
+}
+
+input[type="submit"] {
+    padding: 10px 30px;
+    border-radius: 40px;
+    border: 2px solid #FF9900;
+    color: white;
+    transition: .2s;
+    margin-top: 30px;
+}
+
+input[type="submit"]:hover {
+    background-color: #ffa51e;
+    color: black;
+}
+
+select {
+    border-radius: 30px;
+    padding: 3px 20px;
+    outline: none;
+    margin: 0;
+}
+
+input {
+    outline: none;
+    background-color: inherit;
+    border: 0;
+    border-bottom: 2px solid #FF9900;
+    border-radius: 0;
+    outline: none;
+}
+
+input[type="date"] {
+    text-align: right;
+    color: white;
+}
+
+select:after {
+    padding: 10px;
+}
+
+p, h3, h4 {
+    text-align: left;
+}
+
+h4 {
+    margin-top: 20px;
+}
+
+textarea {
+    background-color: #3E3E3E;
+    outline: none;
+    border: none;
+    color: white;
+    padding: 10px;
+    resize: none;
+    border-left: 2px solid #F69502;
+}
+
+
+/* GRID */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.box {
+    background-color: #333;
+    padding: 20px;
+}
+
+.mainBox {
+    grid-column: 1/2;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table tr:nth-child(even),
+thead {
+    background-color: #3E3E3E;
+}
+
+.table td {
+    padding: 20px 0;
+    color: white;
+    min-width: 40px;
+}
+
+td {
+    color: white;
+}
+
+.mainBox select {
+    width: 100%;
+    text-align-last: center;
+}
+
+.error {
+    color: red;
+}
+
+
+/* SCROLL */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 30px;
+}
+
+::-webkit-scrollbar-track-piece {
+    background-color: #E1E1E1;
+}
+
+::-webkit-scrollbar-thumb {
+    height: 50px;
+    background-color: #FF9900;
+}
+
+
+

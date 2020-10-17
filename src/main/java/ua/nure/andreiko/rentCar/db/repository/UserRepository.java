@@ -5,6 +5,11 @@ import ua.nure.andreiko.rentCar.db.entity.User;
 
 import java.util.List;
 
+/**
+ * Interface user repository
+ *
+ * @author E.Andreiko
+ */
 public interface UserRepository {
 
     User getUser(User user);

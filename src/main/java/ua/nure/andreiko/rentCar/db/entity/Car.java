@@ -2,6 +2,11 @@ package ua.nure.andreiko.rentCar.db.entity;
 
 import java.util.Objects;
 
+/**
+ * Car entity.
+ *
+ * @author E.Andreiko
+ */
 public class Car extends Entity {
 
     private String model;
@@ -11,17 +16,6 @@ public class Car extends Entity {
     private double Cost;
 
     private long idCategory;
-    //private boolean status;
-
-    //todo Сделать проверку статуса
-
-/*    public boolean isStatus() {
-        return status;
-    }
-
-    public void setStatus(boolean status) {
-        this.status = status;
-    }*/
 
     public String getModel() {
         return model;

@@ -5,6 +5,11 @@ import ua.nure.andreiko.rentCar.db.entity.Car;
 
 import java.util.List;
 
+/**
+ * Interface car repository
+ *
+ * @author E.Andreiko
+ */
 public interface CarRepository {
 
     void createCar(Car car);
@@ -13,5 +18,5 @@ public interface CarRepository {
 
     void deleteCar(Car car);
 
-    List<CarDTO>getAllCarDto();
+    List<CarDTO>getAllCarDTO();
 }

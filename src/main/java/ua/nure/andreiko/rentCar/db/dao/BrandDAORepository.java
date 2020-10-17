@@ -15,6 +15,11 @@ import java.util.List;
 
 import static ua.nure.andreiko.rentCar.db.DBManager.close;
 
+/**
+ * Brand DAO. Works with brand repository.
+ *
+ * @author E.Andreiko
+ */
 public class BrandDAORepository {
 
     private final Logger LOGGER = Logger.getLogger(BrandDAORepository.class);
@@ -25,6 +30,10 @@ public class BrandDAORepository {
         this.dbManager = dbManager;
     }
 
+    /**
+     * @return list brand
+     * @throws DBException
+     */
     public List<Brand> getBrandList() throws DBException {
         List<Brand> brandList = new ArrayList<>();
         Connection connection = dbManager.getConnection();
@@ -48,6 +57,13 @@ public class BrandDAORepository {
         return brandList;
     }
 
+    /**
+     * Extracts a brand entity from the result set
+     *
+     * @param resultSet from which a brand entity will be extracted.
+     * @return Brand entity
+     * @throws SQLException
+     */
     private Brand extractBrand(ResultSet resultSet) throws SQLException {
         Brand brand = new Brand();
         brand.setId(resultSet.getLong("id_brand"));

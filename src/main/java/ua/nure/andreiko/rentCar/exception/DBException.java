@@ -1,5 +1,11 @@
 package ua.nure.andreiko.rentCar.exception;
 
+/**
+ * An exception that provides information on a database access error.
+ *
+ * @author E.Andreiko
+ *
+ */
 public class DBException extends AppException {
 
     public DBException() {

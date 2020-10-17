@@ -10,6 +10,11 @@ import ua.nure.andreiko.rentCar.exception.DBException;
 
 import java.util.List;
 
+/**
+ * Class user repository which the implements interface user repository
+ *
+ * @author E.Andreiko
+ */
 public class UserRepositoryImpl implements UserRepository {
 
     private final Logger LOGGER = Logger.getLogger(UserRepositoryImpl.class);
@@ -23,6 +28,11 @@ public class UserRepositoryImpl implements UserRepository {
         this.dbManager = dbManager;
     }
 
+    /**
+     * Get user from db
+     * @param user which need to get
+     * @return user object
+     */
     @Override
     public User getUser(User user) {
         return dbManager.doTransaction(() -> {
@@ -36,6 +46,10 @@ public class UserRepositoryImpl implements UserRepository {
         });
     }
 
+    /**
+     * Create new user
+     * @param user object which need create
+     */
     @Override
     public void createUser(User user) {
         dbManager.doTransaction(() -> {
@@ -49,6 +63,11 @@ public class UserRepositoryImpl implements UserRepository {
         });
     }
 
+    /**
+     * Update user
+     *
+     * @param user object which need update
+     */
     @Override
     public void updateUser(User user) {
         dbManager.doTransaction(() -> {
@@ -62,6 +81,11 @@ public class UserRepositoryImpl implements UserRepository {
         });
     }
 
+    /**
+     * Update user status
+     *
+     * @param user object which need update status
+     */
     @Override
     public void updateUserStatus(User user) {
         dbManager.doTransaction(() -> {
@@ -75,6 +99,11 @@ public class UserRepositoryImpl implements UserRepository {
         });
     }
 
+    /**
+     * Get list user DTO
+     *
+     * @return list user DTO
+     */
     @Override
     public List<UserDTO> getUserDTO() {
         return dbManager.doTransaction(() -> {

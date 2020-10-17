@@ -2,6 +2,11 @@ package ua.nure.andreiko.rentCar.db.entity;
 
 import java.util.Objects;
 
+/**
+ * User entity.
+ *
+ * @author E.Andreiko
+ */
 public class User extends Entity {
 
     private String login;

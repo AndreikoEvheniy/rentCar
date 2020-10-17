@@ -4,6 +4,11 @@ import ua.nure.andreiko.rentCar.db.entity.Entity;
 
 import java.util.Objects;
 
+/**
+ * User Data Transfer Object.
+ *
+ * @author E.Andreiko
+ */
 public class UserDTO extends Entity {
 
     private String login;

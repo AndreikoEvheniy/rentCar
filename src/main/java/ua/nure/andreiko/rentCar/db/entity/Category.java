@@ -2,6 +2,11 @@ package ua.nure.andreiko.rentCar.db.entity;
 
 import java.util.Objects;
 
+/**
+ * Category entity.
+ *
+ * @author E.Andreiko
+ */
 public class Category extends Entity {
 
     private String category;

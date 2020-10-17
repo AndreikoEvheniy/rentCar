@@ -10,6 +10,11 @@ import ua.nure.andreiko.rentCar.exception.DBException;
 
 import java.util.List;
 
+/**
+ * Class car repository which the implements interface car repository
+ *
+ * @author E.Andreiko
+ */
 public class CarRepositoryImpl implements CarRepository {
 
     private final Logger LOGGER = Logger.getLogger(CarRepositoryImpl.class);
@@ -23,6 +28,11 @@ public class CarRepositoryImpl implements CarRepository {
         this.carDAORepository = carDAORepository;
     }
 
+    /**
+     * Create new car
+     *
+     * @param car object which need create
+     */
     @Override
     public void createCar(Car car) {
         dbManager.doTransaction(() -> {
@@ -36,6 +46,12 @@ public class CarRepositoryImpl implements CarRepository {
         });
     }
 
+
+    /**
+     * Update car
+     *
+     * @param car object which need update
+     */
     @Override
     public void updateCar(Car car) {
         dbManager.doTransaction(() -> {
@@ -49,6 +65,12 @@ public class CarRepositoryImpl implements CarRepository {
         });
     }
 
+
+    /**
+     * Remove car
+     *
+     * @param car object which need delete
+     */
     @Override
     public void deleteCar(Car car) {
         dbManager.doTransaction(() -> {
@@ -62,8 +84,14 @@ public class CarRepositoryImpl implements CarRepository {
         });
     }
 
+
+    /**
+     * Get list car DTO
+     *
+     * @return list car DTO
+     */
     @Override
-    public List<CarDTO> getAllCarDto() {
+    public List<CarDTO> getAllCarDTO() {
         return dbManager.doTransaction(() -> {
             try {
                 LOGGER.info("List with car DTO was get");

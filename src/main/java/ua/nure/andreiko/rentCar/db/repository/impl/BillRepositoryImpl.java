@@ -10,19 +10,29 @@ import ua.nure.andreiko.rentCar.exception.DBException;
 
 import java.util.List;
 
+/**
+ * Class bill repository which the implements interface bill repository
+ *
+ * @author E.Andreiko
+ */
 public class BillRepositoryImpl implements BillRepository {
-
-    private final Logger LOGGER = Logger.getLogger(BillRepositoryImpl.class);
 
     private final DBManager dbManager;
 
+    private final Logger LOGGER = Logger.getLogger(BillRepositoryImpl.class);
+
     private final BillDAORepository billDAORepository;
 
-    public BillRepositoryImpl(DBManager dbManager, BillDAORepository billDAORepository) {
-        this.dbManager = dbManager;
-        this.billDAORepository = billDAORepository;
+    public BillRepositoryImpl(DBManager DB_MANAGER, BillDAORepository BILL_DAO_REPOSITORY) {
+        this.dbManager = DB_MANAGER;
+        this.billDAORepository = BILL_DAO_REPOSITORY;
     }
 
+    /**
+     * Create new bill
+     *
+     * @param bill object which need create
+     */
     @Override
     public void createBill(Bill bill) {
         dbManager.doTransaction(() -> {
@@ -36,6 +46,12 @@ public class BillRepositoryImpl implements BillRepository {
         });
     }
 
+    /**
+     * Get list bill by order
+     *
+     * @param order by which get list bill
+     * @return list bill
+     */
     @Override
     public List<Bill> getBills(Order order) {
         return dbManager.doTransaction(() -> {
@@ -49,6 +65,11 @@ public class BillRepositoryImpl implements BillRepository {
         });
     }
 
+    /**
+     * Update bill
+     *
+     * @param bill object which need update
+     */
     @Override
     public void updateBill(Bill bill) {
         dbManager.doTransaction(() -> {

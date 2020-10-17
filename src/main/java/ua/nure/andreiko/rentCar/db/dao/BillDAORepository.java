@@ -16,9 +16,14 @@ import java.util.List;
 
 import static ua.nure.andreiko.rentCar.db.DBManager.close;
 
+/**
+ * Bill DAO. Works with bill repository.
+ *
+ * @author E.Andreiko
+ */
 public class BillDAORepository {
 
-    private final DBManager dbManager;
+    private DBManager dbManager;
 
     private final Logger LOGGER = Logger.getLogger(BillDAORepository.class);
 
@@ -26,14 +31,23 @@ public class BillDAORepository {
         this.dbManager = dbManager;
     }
 
+    /**
+     * Insert an object of bill class.
+     *
+     * @param bill which needs to be insert
+     * @return true if bill was insert
+     * @throws DBException
+     */
     public boolean insertBill(Bill bill) throws DBException {
         Connection connection = dbManager.getConnection();
         PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
         try {
             preparedStatement = connection.prepareStatement(DBConstants.SQL_INSERT_BILL);
             int i = 1;
             preparedStatement.setDouble(i++, bill.getCost());
             preparedStatement.setString(i++, bill.getReason());
+            System.out.println(i+" "+bill.getId());
             preparedStatement.setLong(i, bill.getOrderId());
             preparedStatement.executeUpdate();
             connection.commit();
@@ -43,11 +57,18 @@ public class BillDAORepository {
             LOGGER.info("Cannot obtain insert bill ", e);
             throw new DBException("Unable to connect", e);
         } finally {
-            close(connection, preparedStatement);
+            close(connection, preparedStatement, resultSet);
         }
         return true;
     }
 
+    /**
+     * Returns list bill by order
+     *
+     * @param order which return bill list
+     * @return list bill
+     * @throws DBException
+     */
     public List<Bill> getBills(Order order) throws DBException {
         List<Bill> billList = new ArrayList<>();
         Connection connection = dbManager.getConnection();
@@ -60,8 +81,8 @@ public class BillDAORepository {
             while (resultSet.next()) {
                 billList.add(extractBill(resultSet));
             }
-            LOGGER.info("Bills: " + billList);
             connection.commit();
+            LOGGER.info("Bills: " + billList);
         } catch (SQLException e) {
             dbManager.rollback(connection);
             LOGGER.info("Cannot obtain bills by order ", e);
@@ -72,14 +93,21 @@ public class BillDAORepository {
         return billList;
     }
 
+    /**
+     * Update paid status
+     * @param bill which update paid status
+     * @return true if update was completed
+     * @throws DBException
+     */
     public boolean updateBill(Bill bill) throws DBException {
         Connection connection = dbManager.getConnection();
         PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
         try {
             preparedStatement = connection.prepareStatement(DBConstants.SQL_UPDATE_BILL);
             int i = 1;
-            preparedStatement.setLong(i++, bill.getId());
             preparedStatement.setBoolean(i++, bill.isPaid());
+            preparedStatement.setLong(i, bill.getId());
             preparedStatement.executeUpdate();
             connection.commit();
             LOGGER.info("Bill with id " + bill.getId() + " was update");
@@ -88,11 +116,18 @@ public class BillDAORepository {
             LOGGER.info("Cannot obtain update bill ", e);
             throw new DBException("Unable to connect", e);
         } finally {
-            close(connection, preparedStatement);
+            close(connection, preparedStatement, resultSet);
         }
         return true;
     }
 
+    /**
+     * Extracts a bill entity from the result set
+     *
+     * @param resultSet from which a bill entity will be extracted.
+     * @return Bill entity
+     * @throws SQLException
+     */
     private Bill extractBill(ResultSet resultSet) throws SQLException {
         Bill bill = new Bill();
         bill.setId(resultSet.getLong("id_bill"));

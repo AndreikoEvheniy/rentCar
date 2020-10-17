@@ -2,6 +2,11 @@ package ua.nure.andreiko.rentCar.db.entity;
 
 import java.sql.Timestamp;
 
+/**
+ * Order entity.
+ *
+ * @author E.Andreiko
+ */
 public class Order extends Entity {
 
     private boolean withDriver;

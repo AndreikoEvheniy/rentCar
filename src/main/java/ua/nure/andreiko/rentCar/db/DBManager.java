@@ -14,6 +14,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.function.Supplier;
 
+/**
+ * DB manager. Works with MySQL DB.
+ *
+ * @author E.Andreiko
+ */
 public class DBManager {
 
     private static DBManager instance;
@@ -40,6 +45,13 @@ public class DBManager {
         return instance;
     }
 
+    /**
+     * Returns a DB connection from the Pool Connections. Before using this
+     * method you must configure the Date Source and the Connections Pool in
+     * your WEB_APP_ROOT/META-INF/context.xml file.
+     *
+     * @return DB connection.
+     */
     public Connection getConnection() {
         try {
             return dataSource.getConnection();
@@ -65,6 +77,11 @@ public class DBManager {
         return result;
     }
 
+    /**
+     * Rollbacks a connection.
+     *
+     * @param connection Connection to be roll backed.
+     */
     public void rollback(Connection connection) {
         if (connection != null) {
             try {
@@ -75,6 +92,11 @@ public class DBManager {
         }
     }
 
+    /**
+     * Closes a connection.
+     *
+     * @param connection Connection to be closed.
+     */
     public static void close(Connection connection) {
         if (connection != null) {
             try {
@@ -85,6 +107,12 @@ public class DBManager {
         }
     }
 
+    /**
+     * Closes are connection and statement object.
+     *
+     * @param connection Connection to be closed.
+     * @param statement Statement to be closed.
+     */
     public static void close(Connection connection, Statement statement) {
         if (statement != null) {
             try {
@@ -96,6 +124,13 @@ public class DBManager {
         close(connection);
     }
 
+    /**
+     * Closes are connection, statement and result set object.
+     *
+     * @param connection Connection to be closed.
+     * @param statement Statement to be closed.
+     * @param resultSet Result set to be closed.
+     */
     public static void close(Connection connection, Statement statement, ResultSet resultSet) {
         if (resultSet != null) {
             try {

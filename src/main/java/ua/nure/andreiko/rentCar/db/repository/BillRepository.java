@@ -5,6 +5,11 @@ import ua.nure.andreiko.rentCar.db.entity.Order;
 
 import java.util.List;
 
+/**
+ * Interface bill repository
+ *
+ * @author E.Andreiko
+ */
 public interface BillRepository {
 
     void createBill(Bill bill);

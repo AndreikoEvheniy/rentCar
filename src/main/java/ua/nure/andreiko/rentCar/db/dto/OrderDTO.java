@@ -2,19 +2,25 @@ package ua.nure.andreiko.rentCar.db.dto;
 
 import ua.nure.andreiko.rentCar.db.entity.Entity;
 
+import java.sql.Date;
+import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import java.util.Objects;
 
+/**
+ * Order Data Transfer Object.
+ *
+ * @author E.Andreiko
+ */
 public class OrderDTO extends Entity {
 
     private boolean driver;
 
-    private Date fromDate;
+    private java.sql.Date fromDate;
 
-    private Date toDate;
+    private java.sql.Date toDate;
 
     private String firstName;
 
@@ -27,30 +33,6 @@ public class OrderDTO extends Entity {
     private String status;
 
     private double cost;
-
-    public boolean isDriver() {
-        return driver;
-    }
-
-    public void setDriver(boolean driver) {
-        this.driver = driver;
-    }
-
-    public Date getFromDate() {
-        return fromDate;
-    }
-
-    public void setFromDate(Date fromDate) {
-        this.fromDate = fromDate;
-    }
-
-    public Date getToDate() {
-        return toDate;
-    }
-
-    public void setToDate(Date toDate) {
-        this.toDate = toDate;
-    }
 
     public String getFirstName() {
         return firstName;
@@ -66,6 +48,30 @@ public class OrderDTO extends Entity {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public boolean isDriver() {
+        return driver;
+    }
+
+    public void setDriver(boolean driver) {
+        this.driver = driver;
+    }
+
+    public java.sql.Date getFromDate() {
+        return fromDate;
+    }
+
+    public void setFromDate(Timestamp fromDate) {
+        this.fromDate = new java.sql.Date((fromDate.getTime()));
+    }
+
+    public java.sql.Date getToDate() {
+        return toDate;
+    }
+
+    public void setToDate(Timestamp toDate) {
+        this.toDate = new Date((toDate.getTime()));
     }
 
     public String getReasonDeny() {
@@ -98,9 +104,9 @@ public class OrderDTO extends Entity {
 
     public void setCost(double cost) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        LocalDate starDate = LocalDate.parse(fromDate.toString(), formatter);
+        LocalDate startDate = LocalDate.parse(fromDate.toString(), formatter);
         LocalDate endDate = LocalDate.parse(toDate.toString(), formatter);
-        Period period = Period.between(starDate, endDate);
+        Period period = Period.between(startDate, endDate);
         double driverCost = (driver) ? 50.0 : 0.0;
         cost = period.getDays() * (cost + driverCost);
         this.cost = cost;
@@ -126,7 +132,7 @@ public class OrderDTO extends Entity {
 
     @Override
     public int compareTo(Object o) {
-        OrderDTO r = (OrderDTO) o;
-        return model.compareTo(r.model);
+        OrderDTO w = (OrderDTO) o;
+        return model.compareTo(w.model);
     }
 }

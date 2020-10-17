@@ -2,6 +2,11 @@ package ua.nure.andreiko.rentCar.db;
 
 import ua.nure.andreiko.rentCar.db.entity.User;
 
+/**
+ * User status.
+ *
+ * @author E.Andreiko
+ */
 public enum UserStatus {
     UNBUNNED, BUNNED, PENALTY;
 

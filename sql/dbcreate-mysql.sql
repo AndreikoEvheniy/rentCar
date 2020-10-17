@@ -218,14 +218,14 @@ values ('returning');
 INSERT INTO order_statuses(status)
 values ('closed');
 
-INSERT INTO cars(id_brand, id_category, model, cost, id_status) value ('1', '1', 'X-MAN CAR', '150.23', '1');
-INSERT INTO cars(id_brand, id_category, model, cost, id_status) value ('1', '2', 'BATCAR', '130.53', '1');
-INSERT INTO cars(id_brand, id_category, model, cost, id_status) value ('1', '3', 'Party Bus', '110.28', '1');
+INSERT INTO cars(id_brand, id_category, model, cost, id_status) value ('1', '1', 'M5', '150.23', '1');
+INSERT INTO cars(id_brand, id_category, model, cost, id_status) value ('1', '2', 'X5', '130.53', '1');
+INSERT INTO cars(id_brand, id_category, model, cost, id_status) value ('1', '3', '318', '110.28', '1');
 
-INSERT INTO cars(id_brand, id_category, model, cost, id_status) value ('2', '1', 'Car without wheels', '160.21', '1');
-INSERT INTO cars(id_brand, id_category, model, cost, id_status) value ('2', '2', 'Flying carpet', '140.10', '1');
-INSERT INTO cars(id_brand, id_category, model, cost, id_status) value ('2', '3', 'Gir Bord', '120.23', '1');
+INSERT INTO cars(id_brand, id_category, model, cost, id_status) value ('2', '1', 'A8', '160.21', '1');
+INSERT INTO cars(id_brand, id_category, model, cost, id_status) value ('2', '2', 'A5', '140.10', '1');
+INSERT INTO cars(id_brand, id_category, model, cost, id_status) value ('2', '3', 'A3', '120.23', '1');
 
-INSERT INTO cars(id_brand, id_category, model, cost, id_status) value ('3', '1', 'Car with big gun ', '180.98', '1');
-INSERT INTO cars(id_brand, id_category, model, cost, id_status) value ('3', '2', 'Car with Nikki Minage', '130.50', '1');
-INSERT INTO cars(id_brand, id_category, model, cost, id_status) value ('3', '3', 'Halloween car', '100.00', '1');
+INSERT INTO cars(id_brand, id_category, model, cost, id_status) value ('3', '1', 'AMG GT 63 S', '180.98', '1');
+INSERT INTO cars(id_brand, id_category, model, cost, id_status) value ('3', '2', 'E350', '130.50', '1');
+INSERT INTO cars(id_brand, id_category, model, cost, id_status) value ('3', '3', 'E220', '100.00', '1');

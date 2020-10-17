@@ -2,6 +2,11 @@ package ua.nure.andreiko.rentCar.db.entity;
 
 import java.util.Objects;
 
+/**
+ * Brand entity.
+ *
+ * @author E.Andreiko
+ */
 public class Brand extends Entity {
 
     private String brand;

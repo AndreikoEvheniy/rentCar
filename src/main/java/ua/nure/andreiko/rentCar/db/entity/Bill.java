@@ -2,6 +2,11 @@ package ua.nure.andreiko.rentCar.db.entity;
 
 import java.util.Objects;
 
+/**
+ * Bill entity.
+ *
+ * @author E.Andreiko
+ */
 public class Bill extends Entity{
 
     private double cost;

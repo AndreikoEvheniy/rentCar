@@ -13,6 +13,11 @@ import java.util.List;
 
 import static ua.nure.andreiko.rentCar.db.DBManager.close;
 
+/**
+ * User DAO. Works with user repository.
+ *
+ * @author E.Andreiko
+ */
 public class UserDAORepository {
 
     private final DBManager dbManager;
@@ -23,6 +28,12 @@ public class UserDAORepository {
         this.dbManager = dbManager;
     }
 
+    /**
+     * Get user from db
+     * @param user who need to get
+     * @return user
+     * @throws DBException
+     */
     public User getUser(User user) throws DBException {
         Connection connection = dbManager.getConnection();
         PreparedStatement preparedStatement = null;
@@ -47,6 +58,11 @@ public class UserDAORepository {
         return findUser;
     }
 
+    /**
+     *
+     * @return list user DTO
+     * @throws DBException
+     */
     public List<UserDTO> getUserDTO() throws DBException {
         List<UserDTO> userDTOList = new ArrayList<>();
         Connection connection = dbManager.getConnection();
@@ -70,6 +86,13 @@ public class UserDAORepository {
         return userDTOList;
     }
 
+    /**
+     * Insert an object of user class.
+     *
+     * @param user which needs to be insert
+     * @return true if user was insert
+     * @throws DBException
+     */
     public boolean insertUser(User user) throws DBException {
         Connection connection = dbManager.getConnection();
         PreparedStatement preparedStatement = null;
@@ -97,6 +120,13 @@ public class UserDAORepository {
         return true;
     }
 
+    /**
+     * Update user
+     *
+     * @param user which update
+     * @return true if update was completed
+     * @throws DBException
+     */
     public boolean updateUser(User user) throws DBException {
         Connection connection = dbManager.getConnection();
         ;
@@ -123,6 +153,13 @@ public class UserDAORepository {
         return true;
     }
 
+    /**
+     * Update status user
+     *
+     * @param user who need update status
+     * @return true if update was completed
+     * @throws DBException
+     */
     public boolean updateUserStatus(User user) throws DBException {
         Connection connection = dbManager.getConnection();
         PreparedStatement preparedStatement = null;
@@ -144,6 +181,13 @@ public class UserDAORepository {
         return true;
     }
 
+    /**
+     * Extracts a user entity from the result set
+     *
+     * @param resultSet from which a user entity will be extracted.
+     * @return user entity
+     * @throws SQLException
+     */
     private static User extractUser(ResultSet resultSet) throws SQLException {
         User user = new User();
         user.setId((resultSet.getLong("id_user")));
@@ -157,6 +201,13 @@ public class UserDAORepository {
         return user;
     }
 
+    /**
+     * Extracts a user DTO entity from the result set
+     *
+     * @param resultSet from which a user DTO entity will be extracted.
+     * @return user DTO entity
+     * @throws SQLException
+     */
     private UserDTO extractUserDTO(ResultSet resultSet) throws SQLException {
         UserDTO user = new UserDTO();
         user.setId((resultSet.getLong("id_user")));

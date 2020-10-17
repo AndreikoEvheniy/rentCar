@@ -1,5 +1,10 @@
 package ua.nure.andreiko.rentCar.util;
 
+/**
+ * Utils for logger.
+ *
+ * @author E.Andreiko
+ */
 public class LoggerUtils {
     public static final String ERR_CANNOT_OBTAIN_DATA_SOURCE = "Can't obtain data source.";
     public static final String ERR_CANNOT_OBTAIN_CONNECTION = "Can't obtain connection.";

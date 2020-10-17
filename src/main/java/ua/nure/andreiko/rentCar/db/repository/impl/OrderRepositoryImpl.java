@@ -11,6 +11,11 @@ import ua.nure.andreiko.rentCar.exception.DBException;
 
 import java.util.List;
 
+/**
+ * Class order repository which the implements interface order repository
+ *
+ * @author E.Andreiko
+ */
 public class OrderRepositoryImpl implements OrderRepository {
 
     private final Logger LOGGER = Logger.getLogger(OrderRepositoryImpl.class);
@@ -19,24 +24,15 @@ public class OrderRepositoryImpl implements OrderRepository {
 
     private final DBManager dbManager;
 
-    public OrderRepositoryImpl(OrderDAORepository orderDAORepository, DBManager dbManager) {
-        this.orderDAORepository = orderDAORepository;
-        this.dbManager = dbManager;
+    public OrderRepositoryImpl(OrderDAORepository ORDER_DAO_REPOSITORY, DBManager DB_MANAGER) {
+        this.orderDAORepository = ORDER_DAO_REPOSITORY;
+        this.dbManager = DB_MANAGER;
     }
-
-    @Override
-    public void createAnOrder(Order order) {
-        dbManager.doTransaction(() -> {
-            try {
-                LOGGER.info("Create order: " + order);
-                return orderDAORepository.insertOrder(order);
-            } catch (DBException e) {
-                LOGGER.error("Cannot create new order " + e);
-            }
-            return false;
-        });
-    }
-
+    /**
+     * Update order
+     *
+     * @param order object which need update
+     */
     @Override
     public void updateOrder(Order order) {
         dbManager.doTransaction(() -> {
@@ -50,6 +46,11 @@ public class OrderRepositoryImpl implements OrderRepository {
         });
     }
 
+    /**
+     * Update order status
+     *
+     * @param order object which need update status
+     */
     @Override
     public void updateOrderStatus(Order order) {
         dbManager.doTransaction(() -> {
@@ -63,8 +64,12 @@ public class OrderRepositoryImpl implements OrderRepository {
         });
     }
 
+    /**
+     * @param user to get by list order DTO
+     * @return list orderDTO by user
+     */
     @Override
-    public List<OrderDTO> getListOrderDTOByUser(User user) {
+    public List<OrderDTO> getOrderDTOByUser(User user) {
         return dbManager.doTransaction(() -> {
             try {
                 LOGGER.info("List with order DTO by user was get");
@@ -76,8 +81,12 @@ public class OrderRepositoryImpl implements OrderRepository {
         });
     }
 
+    /**
+     * @param order to get by list order DTO
+     * @return list orderDTO by order
+     */
     @Override
-    public List<OrderDTO> getListOrderDTOByStatus(Order order) {
+    public List<OrderDTO> getOrdersDTOByStatus(Order order) {
         return dbManager.doTransaction(() -> {
             try {
                 LOGGER.info("List with order DTO by status was get");
@@ -86,6 +95,23 @@ public class OrderRepositoryImpl implements OrderRepository {
                 LOGGER.error("Cannot get list order DTO by status " + e);
                 return null;
             }
+        });
+    }
+
+    /**
+     * Create new order
+     * @param order object which need create
+     */
+    @Override
+    public void createAnOrder(Order order) {
+        dbManager.doTransaction(() -> {
+            try {
+                LOGGER.info("Create order: " + order);
+                return orderDAORepository.insertOrder(order);
+            } catch (DBException e) {
+                LOGGER.error("Cannot create new order " + e);
+            }
+            return false;
         });
     }
 }

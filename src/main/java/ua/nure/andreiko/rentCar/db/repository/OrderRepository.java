@@ -6,15 +6,20 @@ import ua.nure.andreiko.rentCar.db.entity.User;
 
 import java.util.List;
 
+/**
+ * Interface order repository
+ *
+ * @author E.Andreiko
+ */
 public interface OrderRepository {
 
-    void createAnOrder(Order order);
-
-    void updateOrder(Order order);
+    void updateOrder(Order order) ;
 
     void updateOrderStatus(Order order);
 
-    List<OrderDTO>getListOrderDTOByUser(User user);
+    List<OrderDTO> getOrderDTOByUser(User user);
 
-    List<OrderDTO>getListOrderDTOByStatus(Order order);
+    List<OrderDTO> getOrdersDTOByStatus(Order order);
+
+    void createAnOrder(Order order);
 }

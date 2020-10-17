@@ -1,5 +1,10 @@
 package ua.nure.andreiko.rentCar.util;
 
+/**
+ * SQL queries.
+ *
+ * @author E.Andreiko
+ */
 public class DBConstants {
 
     public static final String SQL_INSERT_ORDER = "INSERT INTO orders(driver, fromdate, todate, id_car, id_user) VALUES (?,?,?,?,?)";

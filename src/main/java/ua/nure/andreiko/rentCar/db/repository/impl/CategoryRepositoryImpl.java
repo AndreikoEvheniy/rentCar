@@ -10,6 +10,11 @@ import ua.nure.andreiko.rentCar.exception.DBException;
 
 import java.util.List;
 
+/**
+ * Class category repository which the implements interface category repository
+ *
+ * @author E.Andreiko
+ */
 public class CategoryRepositoryImpl implements CategoryRepository {
 
     private final Logger LOGGER = Logger.getLogger(BrandRepositoryImpl.class);
@@ -23,6 +28,9 @@ public class CategoryRepositoryImpl implements CategoryRepository {
         this.categoryDAORepository = categoryDAORepository;
     }
 
+    /**
+     * @return list category
+     */
     @Override
     public List<Category> getCategoryList() {
         return dbManager.doTransaction(() -> {

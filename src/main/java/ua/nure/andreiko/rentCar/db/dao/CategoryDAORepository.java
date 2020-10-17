@@ -13,6 +13,11 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Category DAO. Works with category repository.
+ *
+ * @author E.Andreiko
+ */
 public class CategoryDAORepository {
 
     private final DBManager dbManager;
@@ -23,6 +28,11 @@ public class CategoryDAORepository {
         this.dbManager = dbManager;
     }
 
+    /**
+     *
+     * @return list category
+     * @throws DBException
+     */
     public List<Category> getCategoryList() throws DBException {
         List<Category> categoryList = new ArrayList<>();
         Connection connection = dbManager.getConnection();
@@ -44,6 +54,13 @@ public class CategoryDAORepository {
         return categoryList;
     }
 
+    /**
+     * Extracts a category entity from the result set
+     *
+     * @param resultSet from which a category entity will be extracted.
+     * @return category entity
+     * @throws SQLException
+     */
     private Category extractCategory(ResultSet resultSet) throws SQLException {
         Category category = new Category();
         category.setId(resultSet.getLong("id_category"));
