@@ -103,7 +103,7 @@
                 <div class="formContainer">
                     <input type="hidden" name="command" value="deleteCar"/>
                     <h3><cm:translate prefix="control" key="delete" locale="${pageScope.locale}"/></h3>
-                    <input placeholder="ID" type="number" min="1" name="delete_id_car">
+                    <input placeholder="ID" type="number" min="1" name="id_car">
                     <span class="error"> <c:out value="${requestScope.errorsDelete.id}"/></span>
                 </div>
                 <input type="submit" name="deleteCar"
