@@ -84,7 +84,7 @@ public class AdminTestFunc {
 
     @Test
     public void deleteCarTest() {
-        idCar = webDriver.findElement(By.xpath("//input[@name='delete_id_car']"));
+        idCar = webDriver.findElement(By.xpath("//input[@name='id_car']"));
         button = webDriver.findElement(By.xpath("//input[@name='deleteCar']"));
         idCar.sendKeys("11");
         button.click();
